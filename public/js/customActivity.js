@@ -20,17 +20,19 @@ define(['postmonger'], function(Postmonger) {
 	}
 
 	function save() {
-		/*payload['arguments'] = payload['arguments'] || {};
+		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
 
 		payload['arguments'].execute.inArguments = [{
 		}];
 
-		payload['metaData'] = payload['metaData'] || {};*/
+		payload['metaData'] = payload['metaData'] || {};
 		payload['metaData'].isConfigured = true;
 
 		console.log(JSON.stringify(payload));
 
 		connection.trigger('updateActivity', payload);
+
+		connection.trigger('nextStep');
 	}
 });
