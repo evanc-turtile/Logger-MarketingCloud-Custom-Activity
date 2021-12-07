@@ -1,0 +1,61 @@
+{
+    "workflowApiVersion": "1.0",
+    "metaData": {
+       "icon": "images/icon.png",
+       "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+       "en-US": {
+           "name": "Logger Activity",
+           "description": "Logs Marketing Cloud inputs to RequestBin."
+       }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [
+
+            ],
+            "outArguments": [
+
+            ],
+            "url": "https://sfmcloggerwebapp.herokuapp.com/execute"
+        }
+    },
+    "configurationArguments": {
+       "save": {
+           "url": "https://sfmcloggerwebapp.herokuapp.com/save"
+       },
+       "publish": {
+           "url": "https://sfmcloggerwebapp.herokuapp.com/publish"
+       },
+       "validate": {
+           "url": "https://sfmcloggerwebapp.herokuapp.com/validate"
+       },
+       "stop": {
+           "url": "https://sfmcloggerwebapp.herokuapp.com/stop"
+       }
+    },
+    "wizardSteps": [
+       { "label": "Step 1", "key": "step1" }
+    ],
+    "userInterfaces": {
+       "configModal": {
+           "height": 200,
+           "width": 300,
+           "fullscreen": true
+       }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [
+
+                ],
+                "outArguments": [
+
+                ]
+            }
+        }
+    }
+}

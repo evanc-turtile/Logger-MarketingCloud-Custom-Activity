@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Logger Web Application</title>
+		<script type="text/javascript" src="./jquery.min.js"></script>
+		<script type="text/javascript" src="./js/require.js"></script>
+		<script type="text/javascript">
+			/*requirejs.config({
+				paths: { 'postmonger':'http://localhost:8080/js/postmonger.js' }
+			});*/
+			(function() {
+				var config = {
+					baseUrl: 'http://localhost:8080/'
+				};
+
+				var dependencies = [
+					'customActivity'
+				];
+
+				require(config, dependencies);
+			})();
+		</script>
+	</head>
+	<body>
+		This is the web app.
+	</body>
+</html>
