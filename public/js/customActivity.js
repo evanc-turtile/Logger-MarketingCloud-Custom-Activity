@@ -11,6 +11,8 @@ define(['postmonger'], function(Postmonger) {
 		connection.trigger('ready');
 	});
 
+    connection.on('clickedNext', save);
+
 	function initialize(data) {
 		if (data) {
 			payload = data;
