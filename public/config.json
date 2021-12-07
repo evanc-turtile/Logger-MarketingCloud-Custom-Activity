@@ -19,21 +19,26 @@
             "outArguments": [
 
             ],
-            "url": "https://sfmcloggerwebapp.herokuapp.com/execute"
+            "url": "https://sfmcloggerwebapp.herokuapp.com/execute",
+            "verb":"POST"
         }
     },
     "configurationArguments": {
        "save": {
-           "url": "https://sfmcloggerwebapp.herokuapp.com/save"
+            "url": "https://sfmcloggerwebapp.herokuapp.com/save",
+            "verb":"POST"
        },
        "publish": {
-           "url": "https://sfmcloggerwebapp.herokuapp.com/publish"
+            "url": "https://sfmcloggerwebapp.herokuapp.com/publish",
+            "verb":"POST"
        },
        "validate": {
-           "url": "https://sfmcloggerwebapp.herokuapp.com/validate"
+            "url": "https://sfmcloggerwebapp.herokuapp.com/validate",
+            "verb":"POST"
        },
        "stop": {
-           "url": "https://sfmcloggerwebapp.herokuapp.com/stop"
+            "url": "https://sfmcloggerwebapp.herokuapp.com/stop",
+            "verb":"POST"
        }
     },
     "wizardSteps": [
