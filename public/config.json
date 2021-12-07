@@ -50,17 +50,5 @@
            "width": 300,
            "fullscreen": true
        }
-    },
-    "schema": {
-        "arguments": {
-            "execute": {
-                "inArguments": [
-
-                ],
-                "outArguments": [
-
-                ]
-            }
-        }
     }
 }
