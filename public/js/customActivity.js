@@ -12,6 +12,9 @@ define(['postmonger'], function(Postmonger) {
 	});
 
     connection.on('clickedNext', save);
+    connection.on('requestedSchema', function(data) {
+    	console.log('*** Schema ***', JSON.stringify(data['schema']));
+    });
 
 	function initialize(data) {
 		if (data) {
@@ -20,6 +23,7 @@ define(['postmonger'], function(Postmonger) {
 	}
 
 	function save() {
+		connection.trigger('requestSchema');
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
 
