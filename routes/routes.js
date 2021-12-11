@@ -9,6 +9,7 @@ const routes = require('express').Router();
 const https = require('https');
 var fs = require('fs');
 var configObj = JSON.parse(fs.readFileSync('./public/config.json', 'utf8'));
+//var icon = fs.readFileSync('./public/images/icon.png', 'utf8');
 
 // GET request to index.html
 routes.get('/', function(req, res, next) {
@@ -21,8 +22,13 @@ routes.get('/config.json', function(req, res, next) {
 	res.status(200).json(configObj);
 });
 
-routes.get('/icon.png', function(req, res, next) {
+routes.get('/images/icon.png', function(req, res, next) {
 	//res.status(200).
+	fs.readFile('./public/images/icon.png', function(err, data) {
+		res.send(200, data);
+	});
+	// fails otherwise
+	res.send(400, icon);
 });
 
 routes.post('/execute', function(req, res, next) {

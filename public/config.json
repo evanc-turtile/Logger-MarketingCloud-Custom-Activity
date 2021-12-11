@@ -1,7 +1,8 @@
 {
     "workflowApiVersion": "1.0",
     "metaData": {
-       "icon": "images/icon.png",
+       "icon": "https://sfmcloggerwebapp.herokuapp.com/images/icon.png",
+       "iconSmall": "",
        "category": "message"
     },
     "type": "Rest",
@@ -19,25 +20,25 @@
             "outArguments": [
 
             ],
-            "url": "https://sfmcloggerwebapp.herokuapp.com/execute",
+            "url": "https://en118ofahjdyi.x.pipedream.net/execute",
             "verb":"POST"
         }
     },
     "configurationArguments": {
        "save": {
-            "url": "https://sfmcloggerwebapp.herokuapp.com/save",
+            "url": "https://en118ofahjdyi.x.pipedream.net/save",
             "verb":"POST"
        },
        "publish": {
-            "url": "https://sfmcloggerwebapp.herokuapp.com/publish",
+            "url": "https://en118ofahjdyi.x.pipedream.net/publish",
             "verb":"POST"
        },
        "validate": {
-            "url": "https://sfmcloggerwebapp.herokuapp.com/validate",
+            "url": "https://en118ofahjdyi.x.pipedream.net/validate",
             "verb":"POST"
        },
        "stop": {
-            "url": "https://sfmcloggerwebapp.herokuapp.com/stop",
+            "url": "https://en118ofahjdyi.x.pipedream.net/stop",
             "verb":"POST"
        }
     },
