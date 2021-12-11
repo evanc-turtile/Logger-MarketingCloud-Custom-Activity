@@ -18,6 +18,7 @@ define(['postmonger'], function(Postmonger) {
 
     connection.on('initActivity', function(data) {
     	console.log(data);
+    	initialize(data);
     });
 
     connection.on('requestedEndpoints', function(endpoints) {
