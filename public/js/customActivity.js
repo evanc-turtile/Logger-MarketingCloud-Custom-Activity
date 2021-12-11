@@ -13,7 +13,7 @@ define(['postmonger'], function(Postmonger) {
 
     connection.on('clickedNext', save);
     connection.on('requestedSchema', function(data) {
-    	console.log('*** Schema ***', JSON.stringify(data['schema']));h
+    	console.log('*** Schema ***', JSON.stringify(data['schema']));
     });
 
     connection.on('initActivity', function(data) {
