@@ -4,7 +4,7 @@
        "icon": "images/icon.png",
        "category": "message"
     },
-    "type": "REST",
+    "type": "Rest",
     "lang": {
        "en-US": {
            "name": "Logger Activity",
@@ -23,7 +23,7 @@
             "verb":"POST"
         }
     },
-    "configurationArguments": {
+    "configurationsArguments": {
        "save": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/save",
             "verb":"POST"
