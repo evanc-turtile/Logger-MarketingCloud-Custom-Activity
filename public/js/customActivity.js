@@ -65,4 +65,8 @@ define(['postmonger'], function(Postmonger) {
 
 		connection.trigger('nextStep');
 	}
+
+	connection.trigger('requestSchema');
+
+	connection.trigger('requestInteractionDefaults');
 });
