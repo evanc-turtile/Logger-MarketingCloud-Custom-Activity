@@ -13,12 +13,29 @@ define(['postmonger'], function(Postmonger) {
 
     connection.on('clickedNext', save);
     connection.on('requestedSchema', function(data) {
-    	console.log('*** Schema ***', JSON.stringify(data['schema']));
+    	console.log('*** Schema ***', JSON.stringify(data['schema']));h
     });
+
+    connection.on('initActivity', initialize);
 
     connection.on('requestedEndpoints', function(endpoints) {
     	console.log(endpoints);
+    	connection.trigger('requestInteractionDefaults');
+    	connection.trigger('requestTriggerEventDefinition');
+    	connection.trigger('requestInteraction');
     })
+
+    connection.on('requestedInteractionDefaults', function(settings) {
+    	console.log(settings);
+    });
+
+    connection.on('requestedTriggerEventDefinition', function(eventDefinitionModel) {
+    	console.log(eventDefinitionModel);
+    });
+
+    connection.on('requestedInteraction', function(interaction) {
+    	console.log(interaction);
+    });
 
 	function initialize(data) {
 		if (data) {
