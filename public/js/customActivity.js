@@ -16,21 +16,23 @@ define(['postmonger'], function(Postmonger) {
     	console.log('*** Schema ***', JSON.stringify(data['schema']));h
     });
 
-    connection.on('initActivity', initialize);
+    connection.on('initActivity', function(data) {
+    	console.log(data);
+    });
 
     connection.on('requestedEndpoints', function(endpoints) {
     	console.log(endpoints);
     	connection.trigger('requestInteractionDefaults');
-    	connection.trigger('requestTriggerEventDefinition');
-    	connection.trigger('requestInteraction');
     })
 
     connection.on('requestedInteractionDefaults', function(settings) {
     	console.log(settings);
+    	connection.trigger('requestTriggerEventDefinition');
     });
 
     connection.on('requestedTriggerEventDefinition', function(eventDefinitionModel) {
     	console.log(eventDefinitionModel);
+    	connection.trigger('requestInteraction');
     });
 
     connection.on('requestedInteraction', function(interaction) {
@@ -55,7 +57,7 @@ define(['postmonger'], function(Postmonger) {
 		payload['metaData'] = payload['metaData'] || {};
 		payload['metaData'].isConfigured = true;
 
-		console.log(JSON.stringify(payload));
+		console.log(payload);
 
 		connection.trigger('requestEndpoints');
 
