@@ -1,7 +1,7 @@
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-       "icon": "https://sfmcloggerwebapp.herokuapp.com/icon-actual.png",
+       "icon": "https://sfmcloggerwebapp.herokuapp.com/images/icon-actual.png",
        "iconSmall": "",
        "category": "message"
     },
