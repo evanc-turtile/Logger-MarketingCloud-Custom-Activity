@@ -15,10 +15,9 @@
     "arguments": {
         "execute": {
             "inArguments": [
-
-            ],
-            "outArguments": [
-
+            	{ "contactKey":"{{Contact.Key}}" },
+            	{ "contactKey":"{{Contact.Attribute.JourneyEntrySource.FirstName}}" },
+            	{ "contactKey":"{{Contact.Attribute.JourneyEntrySource.LastName}}" }
             ],
             "url": "https://en118ofahjdyi.x.pipedream.net/execute",
             "verb":"POST"

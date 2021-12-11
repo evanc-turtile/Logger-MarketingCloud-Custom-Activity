@@ -16,6 +16,10 @@ define(['postmonger'], function(Postmonger) {
     	console.log('*** Schema ***', JSON.stringify(data['schema']));
     });
 
+    connection.on('requestedEndpoints', function(endpoints) {
+    	console.log(endpoints);
+    })
+
 	function initialize(data) {
 		if (data) {
 			payload = data;
@@ -35,6 +39,8 @@ define(['postmonger'], function(Postmonger) {
 		payload['metaData'].isConfigured = true;
 
 		console.log(JSON.stringify(payload));
+
+		connection.trigger('requestEndpoints');
 
 		connection.trigger('updateActivity', payload);
 
