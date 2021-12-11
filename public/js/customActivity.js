@@ -48,7 +48,7 @@ define(['postmonger'], function(Postmonger) {
 	}
 
 	function save() {
-		connection.trigger('requestSchema');
+		/*connection.trigger('requestSchema');
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
 
@@ -56,15 +56,19 @@ define(['postmonger'], function(Postmonger) {
 		}];
 
 		payload['metaData'] = payload['metaData'] || {};
-		payload['metaData'].isConfigured = true;
+		payload['metaData'].isConfigured = true;*/
+
+		var configuration = JSON.parse( document.getElementById('testArea').value );
 
 		console.log(payload);
 
-		connection.trigger('requestEndpoints');
+		//connection.trigger('requestEndpoints');
 
-		connection.trigger('updateActivity', payload);
+		//connection.trigger('updateActivity', payload);
 
-		connection.trigger('nextStep');
+		//connection.trigger('nextStep');
+
+		connection.trigger('updateActivity', configuration);
 	}
 
 	connection.trigger('requestSchema');
