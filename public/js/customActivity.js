@@ -20,6 +20,7 @@ define(['postmonger'], function(Postmonger) {
 		if (data) {
 			payload = data;
 		}
+		document.getElementById('testArea').value = JSON.stringify(data, null, 2);
 	}
 
 	function save() {

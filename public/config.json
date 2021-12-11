@@ -23,7 +23,7 @@
             "verb":"POST"
         }
     },
-    "configurationsArguments": {
+    "configurationArguments": {
        "save": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/save",
             "verb":"POST"
