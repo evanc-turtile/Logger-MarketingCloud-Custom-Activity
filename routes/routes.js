@@ -23,25 +23,33 @@ routes.get('/config.json', function(req, res, next) {
 
 routes.post('/execute', function(req, res, next) {
 	validateConfigurations(req.body);
-	res.status(200).json({});
+	//res.status(200).json({});
+	res.send(201, {"hasExecuted":true});
+
 });
 
 routes.post('/save', function(req, res, next) {
-	res.status(200).json({});
+	validateConfigurations(req);
+	//res.status(200).json({});
+	res.send(200, 'Save')
 });
 
 routes.post('/validate', function(req, res, next) {
 	validateConfigurations(req.body);
-	res.status(200).json({});
+	//res.status(200).json({});
+	res.send(200, 'Validate');
 });
 
 routes.post('/stop', function(req, res, next) {
-	res.status(200).json({});
+	validateConfigurations(req.body);
+	//res.status(200).json({});
+	res.send(200, 'Stop');
 });
 
 routes.post('/publish', function(req, res, next) {
 	validateConfigurations(req.body);
-	res.status(200).json({});
+	//res.status(200).json({});
+	res.send(200, 'Publish');
 });
 
 var validateConfigurations = function(requestPayload) {
