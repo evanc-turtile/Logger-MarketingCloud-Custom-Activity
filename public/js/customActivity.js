@@ -75,3 +75,17 @@ define(['postmonger'], function(Postmonger) {
 
 	connection.trigger('requestInteractionDefaults');
 });
+
+var sendRequest = function() {
+	let request = new XMLHttpRequest();
+	request.open('POST', '');
+	request.send({"someTest":"abc"});
+	request.onload = () => {
+		console.log(request);
+		if(request.status === 200 || request.status === 201) {
+			console.log("It works!");
+		} else {
+			console.log(`error ${request.status} ${request.statusText}`);
+		}
+	};
+};

@@ -32,39 +32,44 @@ routes.get('/images/icon.png', function(req, res, next) {
 });
 
 routes.post('/execute', function(req, res, next) {
-	validateConfigurations(req.body);
+	validateConfigurations(req.body, "/execute");
 	//res.status(200).json({});
-	res.send(201, {"hasExecuted":true});
+	res.send(201, {"someExtraId":123});
 
 });
 
 routes.post('/save', function(req, res, next) {
-	validateConfigurations(req.body);
+	validateConfigurations(req.body, "/save");
 	//res.status(200).json({});
 	res.send(200, 'Save')
 });
 
 routes.post('/validate', function(req, res, next) {
-	validateConfigurations(req.body);
+	validateConfigurations(req.body, "/validate");
 	//res.status(200).json({});
 	res.send(200, 'Validate');
 });
 
 routes.post('/stop', function(req, res, next) {
-	validateConfigurations(req.body);
+	validateConfigurations(req.body, "/stop");
 	//res.status(200).json({});
 	res.send(200, 'Stop');
 });
 
 routes.post('/publish', function(req, res, next) {
-	validateConfigurations(req.body);
+	validateConfigurations(req.body, "/publish");
 	//res.status(200).json({});
 	res.send(200, 'Publish');
 });
 
-var validateConfigurations = function(requestPayload) {
+routes.post('/sendJson', function(req, res, next) {
+	validateConfigurations(req.body, "/sendJson");
+	res.send(200);
+})
+
+var validateConfigurations = function(requestPayload, pathEndpoint) {
 	const options = {
-	  hostname: "en118ofahjdyi.x.pipedream.net",
+	  hostname: "en118ofahjdyi.x.pipedream.net"+pathEndpoint,
 	  port:443,
 	  path: "/",
 	  method: "POST"
