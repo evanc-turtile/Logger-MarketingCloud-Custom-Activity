@@ -46,18 +46,18 @@ routes.post('/execute', function(req, res, next) {
 			res.status(400).json({"error":"Bad Request. (Malformed data)"});
 			return;
 		} else {
-			if(mc_val_keys[0] !== "keyvalstatic" && mc_val_keys[0] !== "keyvaldynamic" && args[mc_val_keys[0]] === null) {
+			if(mc_val_keys[0] !== "keyvalstatic" && mc_val_keys[0] !== "keyvaldynamic" && (args[mc_val_keys[0]] === null || args[mc_val_keys[0]] === undefined)) {
 				args[mc_val_keys[0]] = mc_val[mc_val_keys[0]];
 			}
 			if(mc_val_keys[0] === "keyvalstatic") {
-				if(args["keyvalpair"] === null) {
+				if(args["keyvalpair"] === null || args["keyvalpair"] === undefined) {
 					args["keyvalpair"] = mc_val["keyvalstatic"];
 				} else {
 					args["keyvalpair"] += mc_val["keyvalstatic"];
 				}
 			}
 			if(mc_val_keys[0] === "keyvaldynamic") {
-				if(args["keyvalpair"] === null) {
+				if(args["keyvalpair"] === null || args["keyvalpair"] === undefined) {
 					args["keyvalpair"] = mc_val["keyvaldynamic"];
 				} else {
 					args["keyvalpair"] += mc_val["keyvaldynamic"];
