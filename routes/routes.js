@@ -32,9 +32,9 @@ routes.get('/images/icon.png', function(req, res, next) {
 });
 
 routes.post('/execute', function(req, res, next) {
-	var reqPayload = req.body;
-	var inArgsReqPayload = reqPayload.inArguments;
-	var args = {};
+	//var reqPayload = req.body;
+	//var inArgsReqPayload = reqPayload.inArguments;
+	//var args = {};
 
 	// inArgs will always be an array of JSON objects of key-value pairs where values are from user-entered/DE fields
 	/*for(var i = 0; i < inArgsReqPayload.length; i++) {
