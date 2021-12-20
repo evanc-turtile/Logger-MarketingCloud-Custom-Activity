@@ -37,7 +37,7 @@ routes.post('/execute', function(req, res, next) {
 	var args = {};
 
 	// inArgs will always be an array of JSON objects of key-value pairs where values are from user-entered/DE fields
-	for(var i = 0; i < inArgsReqPayload.length; i++) {
+	/*for(var i = 0; i < inArgsReqPayload.length; i++) {
 		var mc_val = inArgsReqPayload[i];
 
 		var mc_val_keys = Object.keys(mc_val);
@@ -64,9 +64,10 @@ routes.post('/execute', function(req, res, next) {
 				}
 			}
 		}
-	}
+	}*/
 
-	validateConfigurations(args, "/execute");
+	//validateConfigurations(args, "/execute");
+	validateConfigurations(req.body, "/execute");
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
 

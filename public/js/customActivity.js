@@ -61,6 +61,10 @@ define(['postmonger'], function(Postmonger) {
 	}
 
 	function save() {
+		// first, clear any inArguments that was saved previously...
+		payload['arguments'].execute.inArguments = [];
+
+		// next, save each input field as an inArgument in the inArguments arr
 		var inputEls = document.getElementsByTagName('input');
 		// insert one argument into inArguments at a time
 		for(var i = 0; i < inputEls.length; i++) {
