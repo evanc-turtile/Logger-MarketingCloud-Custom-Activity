@@ -33,8 +33,9 @@ routes.get('/images/icon.png', function(req, res, next) {
 
 routes.post('/execute', function(req, res, next) {
 	validateConfigurations(req.body, "/execute");
+	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
-	res.status(201).json({"someExtraId":123});
+	res.status(201).json({"someExtraId":id});
 
 });
 
