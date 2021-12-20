@@ -8,6 +8,7 @@
 const routes = require('express').Router();
 const https = require('https');
 var fs = require('fs');
+const soap = require('soap');
 var configObj = JSON.parse(fs.readFileSync('./public/config.json', 'utf8'));
 //var icon = fs.readFileSync('./public/images/icon.png', 'utf8');
 
@@ -32,7 +33,49 @@ routes.get('/images/icon.png', function(req, res, next) {
 });
 
 routes.post('/execute', function(req, res, next) {
-	var reqPayload = req.body;
+	setTimeout(function() {
+		var reqPayload = req.body;
+		var inArgsReqPayload = reqPayload.inArguments;
+		var args = {};
+
+		// inArgs will always be an array of JSON objects of key-value pairs where values are from user-entered/DE fields
+		for(var i = 0; i < inArgsReqPayload.length; i++) {
+			var mc_val = inArgsReqPayload[i];
+
+			var mc_val_keys = Object.keys(mc_val);
+			// loop through the keys from the mc_val (there should only be one saved...)
+			if(mc_val_keys.length > 1 || mc_val_keys.length === 0) {
+				res.status(400).json({"error":"Bad Request. (Malformed data)"});
+				return;
+			} else {
+				if(mc_val_keys[0] !== "keyvalstatic" && mc_val_keys[0] !== "keyvaldynamic" && (args[mc_val_keys[0]] === null || args[mc_val_keys[0]] === undefined)) {
+					args[mc_val_keys[0]] = mc_val[mc_val_keys[0]];
+				}
+				if(mc_val_keys[0] === "keyvalstatic") {
+					if(args["keyvalpair"] === null || args["keyvalpair"] === undefined) {
+						args["keyvalpair"] = mc_val["keyvalstatic"];
+					} else {
+						args["keyvalpair"] += mc_val["keyvalstatic"];
+					}
+				}
+				if(mc_val_keys[0] === "keyvaldynamic") {
+					if(args["keyvalpair"] === null || args["keyvalpair"] === undefined) {
+						args["keyvalpair"] = mc_val["keyvaldynamic"];
+					} else {
+						args["keyvalpair"] += mc_val["keyvaldynamic"];
+					}
+				}
+			}
+		}
+
+		validateConfigurations(args, "/execute");
+		//validateConfigurations(req.body, "/execute");
+		var id = Math.floor(Math.random() * 1000);
+		//res.status(200).json({});
+
+		res.status(201).json({"someExtraId":id});
+	}, 60000);
+	/*var reqPayload = req.body;
 	var inArgsReqPayload = reqPayload.inArguments;
 	var args = {};
 
@@ -71,7 +114,7 @@ routes.post('/execute', function(req, res, next) {
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
 
-	res.status(201).json({"someExtraId":id});
+	res.status(201).json({"someExtraId":id});*/
 });
 
 routes.post('/save', function(req, res, next) {
@@ -99,6 +142,13 @@ routes.post('/publish', function(req, res, next) {
 });
 
 routes.post('/sendJson', function(req, res, next) {
+	/*var url = 'https://mczl3f2-4hkhp1jhx9thdx6qljx8.soap.marketingcloudapis.com/etframework.wsdl';
+	var args = {};
+
+	soap.createClientAsync(url)
+		.then(results => {
+			client.GetDatabasesPromise({});
+		})*/
 	validateConfigurations(req.body, "/sendJson");
 	res.status(200);
 })
