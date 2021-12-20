@@ -52,7 +52,8 @@ define(['postmonger'], function(Postmonger) {
 			var inArg = inArgs[i];
 			console.log(inArg);
 			// there should only be one key saved per inArgument... (and this inArg key is based on the name of the field)
-			var inArgKey = inArg.keys()[0];
+			var inArgKey = Object.keys(inArg)[0];
+			//var inArgKey = inArgKeys[0];
 
 			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
 		}

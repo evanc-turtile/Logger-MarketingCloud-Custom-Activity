@@ -40,7 +40,7 @@ routes.post('/execute', function(req, res, next) {
 	for(var i = 0; i < inArgsReqPayload.length; i++) {
 		var mc_val = inArgsReqPayload[i];
 
-		var mc_val_keys = mc_val.keys;
+		var mc_val_keys = Object.keys(mc_val);
 		// loop through the keys from the mc_val (there should only be one saved...)
 		if(mc_val_keys.length > 1 || mc_val_keys.length === 0) {
 			res.status(400).json({"error":"Bad Request. (Malformed data)"});
