@@ -22,10 +22,26 @@
 		</script>
 	</head>
 	<body>
-		This is the web app.
+		This is the web app config json. (Please expand the textarea window to see what had been saved...)
+		<br />
 		<textarea id="testArea">
 			
 		</textarea>
+
+		<br />
+		<br />
+		Enter your information here:
+		First Name:<input type="text" id="firstName" name="firstName" style="width:100%;height:20px;font-size:15px;" />
+		<br />
+		Last Name:<input type="text" id="lastName" name="lastName" style="width:100%;height:20px;font-size:15px;" />
+		<br />
+		Company: <input type="text" id="company" name="company" style="width:100%;height:20px;font-size:15px;" />
+		<br />
+		Phone Number: <input type="text" id="phoneNumber" name="phoneNumber" style="width:100%;height:20px;font-size:15px;" />
+		<br />
+		Key-Value String (Static): <input type="text" id="keyvalstatic" name="keyvalstatic" style="width:100%;height:20px;font-size:15px;" />
+		<br />
+		Key-Value String (Dynamic): <input type="text" id="keyvaldynamic" name="keyvaldynamic" style="width:100%;height:20px;font-size:15px;" />
 		<button id="genJson" onclick="sendRequest();">Generate JSON</button>
 	</body>
 </html>

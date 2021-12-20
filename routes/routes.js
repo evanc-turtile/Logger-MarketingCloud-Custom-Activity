@@ -32,11 +32,45 @@ routes.get('/images/icon.png', function(req, res, next) {
 });
 
 routes.post('/execute', function(req, res, next) {
-	validateConfigurations(req.body, "/execute");
+	var reqPayload = req.body;
+	var inArgsReqPayload = reqPayload.inArguments;
+	var args = {};
+
+	// inArgs will always be an array of JSON objects of key-value pairs where values are from user-entered/DE fields
+	for(var i = 0; i < inArgsReqPayload.length; i++) {
+		var mc_val = inArgsReqPayload[i];
+
+		var mc_val_keys = mc_val.keys;
+		// loop through the keys from the mc_val (there should only be one saved...)
+		if(mc_val_keys.length > 1 || mc_val_keys.length === 0) {
+			res.status(400).json({"error":"Bad Request. (Malformed data)"});
+			return;
+		} else {
+			if(mc_val_keys[0] !== "keyvalstatic" && mc_val_keys[0] !== "keyvaldynamic" && args[mc_val_keys[0]] === null) {
+				args[mc_val_keys[0]] = mc_val[mc_val_keys[0]];
+			}
+			if(mc_val_keys[0] === "keyvalstatic") {
+				if(args["keyvalpair"] === null) {
+					args["keyvalpair"] = mc_val["keyvalstatic"];
+				} else {
+					args["keyvalpair"] += mc_val["keyvalstatic"];
+				}
+			}
+			if(mc_val_keys[0] === "keyvaldynamic") {
+				if(args["keyvalpair"] === null) {
+					args["keyvalpair"] = mc_val["keyvaldynamic"];
+				} else {
+					args["keyvalpair"] += mc_val["keyvaldynamic"];
+				}
+			}
+		}
+	}
+
+	validateConfigurations(args, "/execute");
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
-	res.status(201).json({"someExtraId":id});
 
+	res.status(201).json({"someExtraId":id});
 });
 
 routes.post('/save', function(req, res, next) {

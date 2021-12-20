@@ -45,28 +45,31 @@ define(['postmonger'], function(Postmonger) {
 			payload = data;
 		}
 		document.getElementById('testArea').value = JSON.stringify(data, null, 2);
+
+		var inArgs = payload["arguments"].execute.inArguments;
+		for(var i = 0; i < inArgs.length; i++) {
+			var inArg = inArgs[i];
+			// there should only be one key saved per inArgument... (and this inArg key is based on the name of the field)
+			var inArgKey = inArg.keys[0];
+
+			document.getElementById(inArgKey).value = inArgs[i][inArgKey];
+		}
+		//var inputEls = document.getElementsByTagName('input');
 	}
 
 	function save() {
-		/*connection.trigger('requestSchema');
-		payload['arguments'] = payload['arguments'] || {};
-		payload['arguments'].execute = payload['arguments'].execute || {};
-
-		payload['arguments'].execute.inArguments = [{
-		}];
-
-		payload['metaData'] = payload['metaData'] || {};
-		payload['metaData'].isConfigured = true;*/
-
-		var configuration = JSON.parse( document.getElementById('testArea').value );
+		var inputEls = document.getElementsByTagName('input');
+		// insert one argument into inArguments at a time
+		for(var i = 0; i < inputEls.length; i++) {
+			var inArg = {};
+			inArg[inputEls.id] = inputEls.value;
+			payload['arguments'].execute.inArguments.push(inArg)
+		}
+		payload["metaData"].isConfigured = true;
+		//var configuration = JSON.parse( document.getElementById('testArea').value );
 
 		console.log(payload);
-
-		//connection.trigger('requestEndpoints');
-
-		//connection.trigger('updateActivity', payload);
-
-		//connection.trigger('nextStep');
+		var configuration = payload;
 
 		connection.trigger('updateActivity', configuration);
 	}
