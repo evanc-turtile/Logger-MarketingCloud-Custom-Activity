@@ -47,6 +47,7 @@ define(['postmonger'], function(Postmonger) {
 		document.getElementById('testArea').value = JSON.stringify(data, null, 2);
 
 		var inArgs = payload["arguments"].execute.inArguments;
+		console.log(inArgs);
 		for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			console.log(inArg);
