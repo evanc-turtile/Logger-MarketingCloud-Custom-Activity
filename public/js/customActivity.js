@@ -49,6 +49,7 @@ define(['postmonger'], function(Postmonger) {
 		var inArgs = payload["arguments"].execute.inArguments;
 		for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
+			console.log(inArg);
 			// there should only be one key saved per inArgument... (and this inArg key is based on the name of the field)
 			var inArgKey = inArg.keys[0];
 
