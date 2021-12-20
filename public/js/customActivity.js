@@ -62,7 +62,7 @@ define(['postmonger'], function(Postmonger) {
 		// insert one argument into inArguments at a time
 		for(var i = 0; i < inputEls.length; i++) {
 			var inArg = {};
-			inArg[inputEls.id] = inputEls.value;
+			inArg[inputEls[i].id] = inputEls[i].value;
 			payload['arguments'].execute.inArguments.push(inArg)
 		}
 		payload["metaData"].isConfigured = true;
