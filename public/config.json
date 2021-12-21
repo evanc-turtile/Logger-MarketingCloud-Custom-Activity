@@ -19,11 +19,6 @@
                     "ContactKey":"{{Contact.Key}}"
                 }
             ],
-            "outArguments": [
-                {
-                    "someExtraId":123
-                }
-            ],
             "url": "https://sfmcloggerwebapp.herokuapp.com/execute",
             "verb":"POST"
         }
@@ -63,5 +58,20 @@
            "width": 300,
            "fullscreen": true
        }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "outArguments":[
+                    {
+                        "someExtraId": {
+                            "dataType":"Number",
+                            "direction":"out",
+                            "access":"visible"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
