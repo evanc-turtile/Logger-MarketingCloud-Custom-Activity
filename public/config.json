@@ -20,25 +20,35 @@
                 }
             ],
             "url": "https://sfmcloggerwebapp.herokuapp.com/execute",
-            "verb":"POST"
+            "verb":"POST",
+            "useJwt":true,
+            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
         }
     },
     "configurationArguments": {
        "save": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/save",
-            "verb":"POST"
+            "verb":"POST",
+            "useJwt":true,
+            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
        },
        "publish": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/publish",
-            "verb":"POST"
+            "verb":"POST",
+            "useJwt":true,
+            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
        },
        "validate": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/validate",
-            "verb":"POST"
+            "verb":"POST",
+            "useJwt":true,
+            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
        },
        "stop": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/stop",
-            "verb":"POST"
+            "verb":"POST",
+            "useJwt":true,
+            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
        }
     },
     "wizardSteps": [
