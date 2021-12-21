@@ -26,27 +26,19 @@
     "configurationArguments": {
        "save": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/save",
-            "verb":"POST",
-            "useJwt":true,
-            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
+            "verb":"POST"
        },
        "publish": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/publish",
-            "verb":"POST",
-            "useJwt":true,
-            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
+            "verb":"POST"
        },
        "validate": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/validate",
-            "verb":"POST",
-            "useJwt":true,
-            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
+            "verb":"POST"
        },
        "stop": {
             "url": "https://sfmcloggerwebapp.herokuapp.com/stop",
-            "verb":"POST",
-            "useJwt":true,
-            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
+            "verb":"POST"
        }
     },
     "wizardSteps": [
