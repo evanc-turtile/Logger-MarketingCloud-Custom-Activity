@@ -92,7 +92,7 @@ var sendRequest = function() {
 	request.setRequestHeader("Content-Type", "application/json");
 
 	var jsonPayload = {"someTest":"abc"};
-	request.send(JSON.stringify(jsonPayload));
+	request.send(jsonPayload);
 	request.onload = () => {
 		console.log(request);
 		if(request.status === 200 || request.status === 201) {

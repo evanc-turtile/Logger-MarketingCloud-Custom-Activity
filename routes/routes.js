@@ -150,7 +150,7 @@ routes.post('/sendJson', function(req, res, next) {
 			return client
 		})*/
 	//validateConfigurations(req.body, "/sendJson");
-	res.status(200);
+	res.status(200).json({'isSuccess':true});
 })
 
 var validateConfigurations = function(requestPayload, pathEndpoint) {
