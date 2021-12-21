@@ -89,7 +89,10 @@ define(['postmonger'], function(Postmonger) {
 var sendRequest = function() {
 	let request = new XMLHttpRequest();
 	request.open('POST', 'https://sfmcloggerwebapp.herokuapp.com/sendJson');
-	request.send({"someTest":"abc"});
+	request.setRequestHeader("Content-Type", "application/json");
+
+	var jsonPayload = {"someTest":"abc"};
+	request.send(JSON.stringify(jsonPayload));
 	request.onload = () => {
 		console.log(request);
 		if(request.status === 200 || request.status === 201) {

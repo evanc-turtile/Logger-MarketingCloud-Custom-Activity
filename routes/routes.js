@@ -33,7 +33,7 @@ routes.get('/images/icon.png', function(req, res, next) {
 });
 
 routes.post('/execute', function(req, res, next) {
-	setTimeout(function() {
+	/*setTimeout(function() {
 		var reqPayload = req.body;
 		var inArgsReqPayload = reqPayload.inArguments;
 		var args = {};
@@ -74,8 +74,8 @@ routes.post('/execute', function(req, res, next) {
 		//res.status(200).json({});
 
 		res.status(201).json({"someExtraId":id});
-	}, 180000);
-	/*var reqPayload = req.body;
+	}, 180000);*/
+	var reqPayload = req.body;
 	var inArgsReqPayload = reqPayload.inArguments;
 	var args = {};
 
@@ -114,7 +114,7 @@ routes.post('/execute', function(req, res, next) {
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
 
-	res.status(201).json({"someExtraId":id});*/
+	res.status(201).json({"someExtraId":id});
 });
 
 routes.post('/save', function(req, res, next) {
@@ -146,10 +146,10 @@ routes.post('/sendJson', function(req, res, next) {
 	var args = {};
 
 	soap.createClientAsync(url)
-		.then(results => {
-			client.GetDatabasesPromise({});
+		.then((client) => {
+			return client
 		})*/
-	validateConfigurations(req.body, "/sendJson");
+	validateConfigurations(req, "/sendJson");
 	res.status(200);
 })
 
