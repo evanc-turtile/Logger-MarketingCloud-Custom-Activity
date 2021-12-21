@@ -20,9 +20,7 @@
                 }
             ],
             "url": "https://sfmcloggerwebapp.herokuapp.com/execute",
-            "verb":"POST",
-            "useJwt":true,
-            "customerKey": "aqpwoiuybhjbvailuhcxyuyiu"
+            "verb":"POST"
         }
     },
     "configurationArguments": {
