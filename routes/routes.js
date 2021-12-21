@@ -149,7 +149,7 @@ routes.post('/sendJson', function(req, res, next) {
 		.then((client) => {
 			return client
 		})*/
-	//validateConfigurations(req.body, "/sendJson");
+	validateConfigurations(req.body, "/sendJson");
 	res.status(200).json({'isSuccess':true});
 })
 
