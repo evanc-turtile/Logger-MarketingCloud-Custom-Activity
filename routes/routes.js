@@ -74,7 +74,6 @@ routes.post('/execute', function(req, res, next) {
 		//res.status(200).json({});
 
 		//res.status(201).json({"someExtraId":id});
-		res.status(403).json({"err":"This is a custom error."});
 	}, 180000);*/
 	var reqPayload = req.body;
 	var inArgsReqPayload = reqPayload.inArguments;
@@ -115,7 +114,8 @@ routes.post('/execute', function(req, res, next) {
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
 
-	res.status(201).json({"someExtraId":id});
+	//res.status(201).json({"someExtraId":id});
+	res.status(403).json({"err":"This is a custom error."});
 });
 
 routes.post('/save', function(req, res, next) {
