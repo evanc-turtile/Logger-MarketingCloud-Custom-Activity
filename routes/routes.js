@@ -115,7 +115,7 @@ routes.post('/execute', function(req, res, next) {
 	//res.status(200).json({});
 
 	//res.status(201).json({"someExtraId":id});
-	res.status(403).json({"err":"This is a custom error."});
+	res.status(400).json({"err":"This is a custom error."});
 });
 
 routes.post('/save', function(req, res, next) {
