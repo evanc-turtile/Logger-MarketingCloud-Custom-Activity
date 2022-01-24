@@ -114,8 +114,8 @@ routes.post('/execute', function(req, res, next) {
 	var id = Math.floor(Math.random() * 1000);
 	//res.status(200).json({});
 
-	//res.status(201).json({"someExtraId":id});
-	res.status(400).end();
+	res.status(201).json({"someExtraId":id});
+	//res.status(400).end();
 	//res.status(400).json({"err":"This is a custom error."});
 });
 
