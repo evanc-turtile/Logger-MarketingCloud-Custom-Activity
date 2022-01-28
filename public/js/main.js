@@ -1,6 +1,6 @@
 'use strict';
 
-requirejs.config({
+/*requirejs.config({
 	paths: {
 		postmonger: 'postmonger'
 	},
@@ -22,4 +22,4 @@ requirejs.onError = function (err) {
 		console.log('modules: ' + err.requireModules);
 	}
 	throw err;
-};
+};*/
