@@ -153,7 +153,12 @@ routes.post('/sendJson', function(req, res, next) {
 		})*/
 	validateConfigurations(req.body, "/sendJson");
 	res.status(200).json({'isSuccess':true});
-})
+});
+
+routes.post('/processData', function(req, res, next) {
+	var id = Math.floor(Math.random() * 1000);
+	return res.status(200).json({"idVal":id});
+});
 
 var validateConfigurations = function(requestPayload, pathEndpoint) {
 	const options = {
