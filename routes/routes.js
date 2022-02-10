@@ -157,8 +157,8 @@ routes.post('/sendJson', function(req, res, next) {
 
 routes.post('/processData', function(req, res, next) {
 	var id = Math.floor(Math.random() * 1000);
-	//return res.status(200).json({"idVal":id});
-	return res.status(400).json({"error":"invalid_request", "traceInfo":{"responseCode":"501", "errorDescription":"it's just an invalid request!!"}});
+	return res.status(200).json({"idVal":id});
+	//return res.status(400).json({"error":"invalid_request", "traceInfo":{"responseCode":"501", "errorDescription":"it's just an invalid request!!"}});
 });
 
 var validateConfigurations = function(requestPayload, pathEndpoint) {
